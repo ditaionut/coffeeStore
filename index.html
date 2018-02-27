@@ -4,23 +4,36 @@
     <meta charste="utf-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <div>
         <nav id="navBar">
             <ul>
-                <li><a href=#>Home</a></li>
-                <li><a href=#>News</a></li>    
-                <li><a href=#>Contact</a></li>    
-                <li style="float: right"><a href=#>About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="newspage.html">News</a></li>    
+                <li><a href="contact.html">Contact</a></li>    
+                <li style="float: right"><a href="about.html">About</a></li>
             </ul>
         </nav>
     </div>
-    <div id="container">
-        <div id="mainContainer"></div>
-        <div id="orderContainer"><strong><h3>Order:</h3></strong></div>
+    <div id="container" class="row"> 
+        <div id="mainContainer" class="col-sm-10">
+            <!-- <h3>Shop</h3> -->
+            <span id="coffeeMenu"><h3>Coffee Menu</h3></span>
+        </div>
+        <div id="orderContainer" class="col-sm-2">
+            <h3 class="orderName">Order:</h3>
+            <div id="totalPrice"></div>
+        </div>
     </div>
-   
+    <div id="recommendedCoffee"></div>
+    <footer id="footerContainer">
+        <p style="color:white; text-align: right; font-size-adjust: 0.20">Ⓒ Ionut Dita</p>
+    </footer>
     <script type="text/javascript" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

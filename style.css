@@ -1,6 +1,5 @@
 /*--------- Navigation bar!---------*/
-#navBar ul{
-    position: fixed; 
+#navBar ul{ 
     top: 0;
     width: 100%;
     list-style: none;
@@ -37,25 +36,124 @@ li a:hover{
     background-color: #4CAF50;
 }
 
-/* Main container */
+/*--------Main Container---------*/
 #container{
-    width: 100%;
-    padding: 3px;
+    margin: 0 5px 0 5px;
 }
 
 /* ---------Coffee Menu-------- */
 #mainContainer{
-    margin-top: 60px;
-    cursor: pointer;
-    width: 45%;
+    margin-top: 5px;
+    padding: 5px;
     float: left;
+    background-color: rgb(129, 95, 95);
+    text-align:center;
 }
 
 /* --------Order Container------ */
 #orderContainer{
-    margin-top: 60px;
+    padding: 1px;
+    margin-top: 5px;
     border: solid 1px black;
+    background-color: rgb(129, 95, 95);
+}
+
+.orderName{
+    padding: 5px;
+    margin: 1.5px;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+
+.coffeeName{
+    position: relative;
+    padding-bottom: 10px;
+    display: block;
+    font-weight: bold;
+    margin: 2px;
+    cursor: pointer; 
+}
+
+.coffeeContainer{
+    cursor: pointer;
+    position: relative;
     display: inline-block;
-    width: 45%;
-    height:auto;
+    margin: 2px;
+    background-color: #fff;
+    border-radius: 3px;
+    border-width: 0;
+    padding: 0;
+    color: #222;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 1px 5px -1px rgba(0,0,0,.13);
+    -webkit-transition: box-shadow .15s ease-in-out;
+    -o-transition: box-shadow .15s ease-in-out;
+    transition: box-shadow .15s ease-in-out;
+    text-align: center;
+}
+
+.iconCoffee{
+    -webkit-transition: opacity .15s ease-in-out;
+    -o-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+    background-color: #fff;
+}
+
+#totalPrice{
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    bottom: 0;
+}
+
+#removeButton{
+    color: red;
+    font-size: 8px;
+    text-align:center;
+    float: right;
+    cursor:pointer;
+}
+
+/* -----NEWS PAGE------ */
+
+#iconCoffee{
+    width:100%;
+}
+
+/* ----CONTACT PAGE----- */
+
+#addressLocation{
+
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px 10px 10px 50px;
+}
+
+#inputContainer{
+    margin-top: 100px;
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+}
+
+/* ----ABOUT US PAGE---- */
+
+#containerAbout{
+    margin-top:10px;
+    float: left;
+}
+
+/* ----FOOTER----- */
+
+#footerContainer{
+    background-color:#333;
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    position:fixed;
 }
