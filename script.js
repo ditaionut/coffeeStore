@@ -33,12 +33,14 @@ function CCoffeeShop() {
     this.menu;
     // this.orders;
     this.div;
+    this.recentArray;
 }
 
 CCoffeeShop.prototype.init = function() {
     // this.menu = {
     //     coffees: []
     // };
+    this.recentArray = [];
     this.order = {
         coffees: [],
         totalPrice: null
@@ -50,19 +52,12 @@ CCoffeeShop.prototype.init = function() {
     for(var i = 0; i < coffeeTypes.length; i++) {
         var coffee = new CCoffee();
         coffee.init(coffeeTypes[i]);
-        // this.menu.coffees.push(coffee);      
+      //  coffee.addToOrder()
+        // this.menu.coffees.push(coffee);  
+
     }
-
-    // this.div = $('<div id="coffeeRecommended"></div>');
-    // $('#recommendedCoffee').append(this.div);
-
-    // for(var i; i <= coffeeTypes.length; i++){
-    //     var coffeeRecommend = new CSuggestion();
-    //     coffeeRecommend.init(coffeeTypes[i]);
-    //     this.menu.coffees.push(coffee);
-    // }
 };
-
+//--------------ADD COFFEE TO ORDER------------
 CCoffeeShop.prototype.addToOrder = function(coffee) {
     var self = this;
     this.order.coffees.push(coffee);
@@ -80,14 +75,14 @@ CCoffeeShop.prototype.removeFromOrder = function(coffeeOrder) {
 CCoffeeShop.prototype.reUpdatePrice = function(coffee){
     this.order.totalPrice -= coffee.price;
     $('#totalPrice').html('Price: ' + this.order.totalPrice + '$');
-}
+};
 
 function CCoffee() {
     this.price;
     this.name;
     this.description;
-    this.div;
     this.src;
+    this.div;
 }
 
 CCoffee.prototype.init = function(coffee) {
@@ -101,11 +96,41 @@ CCoffee.prototype.init = function(coffee) {
     + '<span class="coffeeName">' + this.name + '</span>'
     + '<span class="price">' + ' Price: $' + this.price + '<br>' + '</span>'
     + '<img src="' + this.src +'" class="iconCoffee"/></div>');
+  //DUPLICATE CODE -1
     this.div.click(function(){
         shop.addToOrder(self);
+        var recent = new CCoffee;
+        recent.duplicate(coffee);
+        shop.recentArray.push(recent);
     });
     shop.div.append(this.div);
 };
+
+//---------RECENTLY ADDED----------
+
+CCoffee.prototype.duplicate = function(coffee) {
+    this.init(coffee);
+    this.div.attr('id', this.name + 'coffeeDuplicate');
+    this.div.detach().appendTo('#recommendedCoffee');
+};
+
+function CCoffeeRecentlyAdded(){
+    this.coffees;
+    this.recentCoffees;
+}
+
+CCoffeeRecentlyAdded.prototype.init = function(coffee){
+    this.coffees = [];
+    this.recentCoffees = [];
+
+    for(var i; i < coffeeTypes.length; i++){
+        var recentAdded = new CCoffee();
+        recentAdded.init(coffeeTypes[i]);
+        this.coffee.push(recentAdded);
+    }
+};
+
+//-------ORDERED COFFEES--------
 
 function CCoffeeOrder() {
     this.price;
@@ -121,7 +146,7 @@ CCoffeeOrder.prototype.init = function(coffee) {
     this.description = coffee.description;
 
     this.div = $('<div id="' + this.name + '" class="orderCoffeeName">' + this.name 
-    +'<button id=removeButton>' + 'remove' + '</button>' + '</div>');
+    + '<span class="toolTip">Click to remove</span>'+'</div>');
     this.div.click(function(){
         shop.removeFromOrder(self);
         shop.reUpdatePrice(self);
@@ -132,19 +157,3 @@ CCoffeeOrder.prototype.init = function(coffee) {
 var shop = new CCoffeeShop();
 shop.init();
 
-// Recently ordered coffees
-function CSuggestion() {
-    this.name;
-    this.description;
-    this.price;
-    this.div;
-}
-
-CSuggestion.prototype.init = function(coffee) {
-    this.name = coffee.name;
-    this.description = coffee.descriprion;
-    this.price = coffee.price;
-    
-    this.div = $('<div id="' + this.name + 'container">' + this.name + '</div>');
-    shop.div.append(this.div);
-};
